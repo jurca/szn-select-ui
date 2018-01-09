@@ -17,5 +17,5 @@ its JavaScript API.
 The element must be linked to the `select` element it is to represent:
 
 ```js
-selectButton.setSelectElement(selectElement)
+selectUi.setSelectElement(selectElement)
 ```
