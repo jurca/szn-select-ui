@@ -1,4 +1,4 @@
-# szn-select-UI
+# szn-select-ui
 
 UI for the accessible HTML selectbox with customizable UI: szn-select.
 
