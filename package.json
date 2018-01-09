@@ -1,0 +1,47 @@
+{
+  "name": "@jurca/szn-select-ui",
+  "version": "0.0.0",
+  "description": "UI for the accessible HTML selectbox with customizable UI - szn-select",
+  "main": "szn-select-ui.es6.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jurca/szn-select-ui.git"
+  },
+  "keywords": [
+    "web",
+    "component",
+    "szn",
+    "seznam",
+    "seznam.cz",
+    "select",
+    "combobox"
+  ],
+  "author": "Martin Jurča <martin.jurca@firma.seznam.cz>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jurca/szn-select-ui/issues"
+  },
+  "homepage": "https://github.com/jurca/szn-select-ui#readme",
+  "dependencies": {
+    "@jurca/szn-elements": "0.0.5",
+    "@jurca/szn-options": "0.0.8",
+    "@jurca/szn-select-button": "0.0.3",
+    "@jurca/szn-tethered": "0.0.6"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-minify": "^0.2.0",
+    "del": "^3.0.0",
+    "eslint": "^4.15.0",
+    "eslint-config-fbjs-opensource": "^1.0.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-rename": "^1.2.2",
+    "jest": "^22.0.4",
+    "postcss-custom-properties": "^6.2.0"
+  }
+}
