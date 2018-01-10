@@ -178,11 +178,6 @@
     }
   }
 
-  function onToggleDropdown(instance, event) {
-    event.stopPropagation()
-    // instance.setOpen(true / false)
-  }
-
   function onDropdownPositionChange(instance, verticalAlignment) {
     const isOpenedAtTop = verticalAlignment === instance._dropdown.VERTICAL_ALIGN.TOP
     instance._dropdownPosition = verticalAlignment
