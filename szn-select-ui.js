@@ -8,7 +8,8 @@
   const CSS_STYLES_TAG = 'data-styles--szn-select'
 
   const MIN_BOTTOM_SPACE = 160 // px
-  const OBSERVED_DOM_EVENTS = ['resize', 'scroll', 'wheel', 'touchmove']
+  const INTERACTION_DOM_EVENTS = ['mousedown', 'click', 'touchstart']
+  const RESIZE_RELATED_DOM_EVENTS = ['resize', 'scroll', 'wheel', 'touchmove']
 
   let stylesInjected = false
 
@@ -39,12 +40,12 @@
       this._dropdownContent = SznElements.buildDom('<szn- data-szn-select-dropdown data-szn-tethered-content></szn->')
       this._dropdownOptions = null
       this._dropdownContainer = document.body
-      this._blurTimeout = null
       this._minBottomSpace = MIN_BOTTOM_SPACE
       this._observer = new MutationObserver(onDomMutated.bind(this))
 
-      this._onDropdownPositionChange = verticalAlignment => onDropdownPositionChange(this, verticalAlignment)
-      this._onDropdownSizeUpdateNeeded = () => onDropdownSizeUpdateNeeded(this)
+      this._onDropdownPositionChange = onDropdownPositionChange.bind(null, this)
+      this._onDropdownSizeUpdateNeeded = onDropdownSizeUpdateNeeded.bind(null, this)
+      this._onUiInteracted = onUiInteracted.bind(null, this)
 
       if (!stylesInjected) {
         const stylesContainer = document.createElement('style')
@@ -69,10 +70,6 @@
     onUnmount() {
       if (this._dropdown) {
         this._dropdown.parentNode.removeChild(this._dropdown)
-      }
-      if (this._blurTimeout) {
-        clearTimeout(this._blurTimeout)
-        this._blurTimeout = null
       }
 
       removeEventListeners(this)
@@ -132,14 +129,28 @@
   }
 
   function addEventListeners(instance) {
-    for (const eventType of OBSERVED_DOM_EVENTS) {
+    for (const eventType of INTERACTION_DOM_EVENTS) {
+      instance._root.addEventListener(eventType, instance._onUiInteracted)
+      instance._dropdownContent.addEventListener(eventType, instance._onUiInteracted)
+    }
+    for (const eventType of RESIZE_RELATED_DOM_EVENTS) {
       addEventListener(eventType, instance._onDropdownSizeUpdateNeeded)
     }
   }
 
   function removeEventListeners(instance) {
-    for (const eventType of OBSERVED_DOM_EVENTS) {
+    for (const eventType of INTERACTION_DOM_EVENTS) {
+      instance._root.removeEventListener(eventType, instance._onUiInteracted)
+      instance._dropdownContent.removeEventListener(eventType, instance._onUiInteracted)
+    }
+    for (const eventType of RESIZE_RELATED_DOM_EVENTS) {
       removeEventListener(eventType, instance._onDropdownSizeUpdateNeeded)
+    }
+  }
+
+  function onUiInteracted(instance) {
+    if (instance._root.onUiInteracted) {
+      instance._root.onUiInteracted()
     }
   }
 
@@ -189,20 +200,20 @@
   }
 
   function createUI(instance) {
-    clearUi(instance)
+    clearUI(instance)
 
     if (!instance._select) {
       return
     }
 
     if (instance._select.multiple) {
-      createMultiSelectUi(instance)
+      createMultiSelectUI(instance)
     } else {
-      createSingleSelectUi(instance)
+      createSingleSelectUI(instance)
     }
   }
 
-  function createSingleSelectUi(instance) {
+  function createSingleSelectUI(instance) {
     initSingleSelectButton(instance)
 
     instance._dropdownOptions = document.createElement('szn-options')
@@ -240,14 +251,14 @@
     onDropdownSizeUpdateNeeded(instance)
   }
 
-  function createMultiSelectUi(instance) {
+  function createMultiSelectUI(instance) {
     const select = instance._select
     const options = document.createElement('szn-options')
     instance._root.appendChild(options)
     SznElements.awaitElementReady(options, () => options.setOptions(select))
   }
 
-  function clearUi(instance) {
+  function clearUI(instance) {
     instance._root.innerHTML = ''
     instance._dropdownContent.innerHTML = ''
     if (instance._dropdown && instance._dropdown.parentNode) {
