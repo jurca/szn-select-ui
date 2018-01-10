@@ -9,7 +9,7 @@ szn-select-ui[data-szn-select-active] szn-select-button,
 szn-select-ui[data-szn-select-active] szn-options {
     border-color: var(--szn-select-ui-active-border-color, #7dbfff);
 
-    box-shadow: var(--szn-select-active-box-shadow, 0 0 3px rgba(0, 132, 255, .4));
+    box-shadow: var(--szn-select-ui-active-box-shadow, 0 0 3px rgba(0, 132, 255, .4));
 }
 
 /* increase weight of the selector to override the szn-tethered's styles */
