@@ -4,7 +4,10 @@
   "description": "UI for the accessible HTML selectbox with customizable UI - szn-select",
   "main": "szn-select-ui.es6.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "gulp",
+    "prepublishOnly": "echo Run \\'npm run publish-package\\' instead && exit 1",
+    "publish-package": "npm run build && npm publish --ignore-scripts dist"
   },
   "repository": {
     "type": "git",
@@ -27,8 +30,8 @@
   "homepage": "https://github.com/jurca/szn-select-ui#readme",
   "dependencies": {
     "@jurca/szn-elements": "0.0.5",
-    "@jurca/szn-options": "0.0.8",
-    "@jurca/szn-select-button": "0.0.3",
+    "@jurca/szn-options": "0.0.9",
+    "@jurca/szn-select-button": "0.0.5",
     "@jurca/szn-tethered": "0.0.6"
   },
   "devDependencies": {
