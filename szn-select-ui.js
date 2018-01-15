@@ -5,7 +5,7 @@
   const CSS_STYLES = `
 %{CSS_STYLES}%
   `
-  const CSS_STYLES_TAG = 'data-styles--szn-select'
+  const CSS_STYLES_TAG = 'data-styles--szn-select-ui'
 
   const MIN_BOTTOM_SPACE = 160 // px
   const INTERACTION_DOM_EVENTS = ['mousedown', 'click', 'touchstart']
