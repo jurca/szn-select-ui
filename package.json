@@ -29,9 +29,9 @@
   },
   "homepage": "https://github.com/jurca/szn-select-ui#readme",
   "dependencies": {
-    "@jurca/szn-elements": "0.0.5",
+    "@jurca/szn-elements": "0.0.6",
     "@jurca/szn-options": "0.0.9",
-    "@jurca/szn-select-button": "0.0.5",
+    "@jurca/szn-select-button": "0.0.7",
     "@jurca/szn-tethered": "0.0.6"
   },
   "devDependencies": {
