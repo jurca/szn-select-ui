@@ -148,9 +148,9 @@
     }
   }
 
-  function onUiInteracted(instance) {
+  function onUiInteracted(instance, event) {
     if (instance._root.onUiInteracted) {
-      instance._root.onUiInteracted()
+      instance._root.onUiInteracted(event)
     }
   }
 
