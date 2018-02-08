@@ -57,6 +57,7 @@
     }
 
     onMount() {
+      this._root.setAttribute('aria-hidden', 'true')
       addEventListeners(this)
       this._observer.observe(this._root, {
         childList: true,
