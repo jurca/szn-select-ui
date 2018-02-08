@@ -5,13 +5,9 @@
   const CSS_STYLES = `
 %{CSS_STYLES}%
   `
-  const CSS_STYLES_TAG = 'data-styles--szn-select-ui'
-
   const MIN_BOTTOM_SPACE = 160 // px
   const INTERACTION_DOM_EVENTS = ['mousedown', 'click', 'touchstart']
   const RESIZE_RELATED_DOM_EVENTS = ['resize', 'scroll', 'wheel', 'touchmove']
-
-  let stylesInjected = false
 
   SznElements['szn-select-ui'] = class SznSelectUi {
     constructor(rootElement, uiContainer) {
@@ -47,13 +43,7 @@
       this._onDropdownSizeUpdateNeeded = onDropdownSizeUpdateNeeded.bind(null, this)
       this._onUiInteracted = onUiInteracted.bind(null, this)
 
-      if (!stylesInjected) {
-        const stylesContainer = document.createElement('style')
-        stylesContainer.innerHTML = CSS_STYLES
-        stylesContainer.setAttribute(CSS_STYLES_TAG, '')
-        document.head.appendChild(stylesContainer)
-        stylesInjected = true
-      }
+      SznElements.injectStyles(CSS_STYLES, 'szn-select-ui')
     }
 
     onMount() {
