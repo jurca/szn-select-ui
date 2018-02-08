@@ -28,8 +28,10 @@
     "url": "https://github.com/jurca/szn-select-ui/issues"
   },
   "homepage": "https://github.com/jurca/szn-select-ui#readme",
+  "peerDependencies": {
+    "@jurca/szn-elements": "^1.0.0"
+  },
   "dependencies": {
-    "@jurca/szn-elements": "0.0.6",
     "@jurca/szn-options": "0.0.9",
     "@jurca/szn-select-button": "0.0.8",
     "@jurca/szn-tethered": "0.0.6"
