@@ -33,7 +33,7 @@
       this._button = null
       this._dropdown = null
       this._dropdownPosition = null
-      this._dropdownContent = SznElements.buildDom('<szn- data-szn-select-dropdown data-szn-tethered-content></szn->')
+      this._dropdownContent = SznElements.buildDom('<szn- data-szn-select-dropdown data-szn-tethered--content></szn->')
       this._dropdownOptions = null
       this._dropdownContainer = document.body
       this._minBottomSpace = MIN_BOTTOM_SPACE
