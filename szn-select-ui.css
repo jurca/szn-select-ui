@@ -16,12 +16,12 @@ szn-select-ui[data-szn-select-ui--active] szn-options {
 body > szn-tethered > [data-szn-select-ui--dropdown] {
     display: block;
 
-    top: -1px;
+    top: var(--szn-select-ui--dropdown-offset, -1px);
 
     min-width: var(--szn-select-ui--dropdown-min-width, 109px);
 }
 
 /* increase weight of the selector to override the szn-tethered's styles */
 body > szn-tethered[data-vertical-align='top'] > [data-szn-select-ui--dropdown] {
-    bottom: -1px;
+    bottom: var(--szn-select-ui--dropdown-offset, -1px);
 }
