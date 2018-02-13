@@ -33,7 +33,9 @@
       this._button = null
       this._dropdown = null
       this._dropdownPosition = null
-      this._dropdownContent = SznElements.buildDom('<szn- data-szn-select-dropdown data-szn-tethered--content></szn->')
+      this._dropdownContent = SznElements.buildDom(
+        '<szn- data-szn-select-ui--dropdown data-szn-tethered--content></szn->',
+      )
       this._dropdownOptions = null
       this._dropdownContainer = document.body
       this._minBottomSpace = MIN_BOTTOM_SPACE
@@ -112,9 +114,9 @@
 
     setFocus(hasFocus) {
       if (hasFocus) {
-        this._root.setAttribute('data-szn-select-active', '')
+        this._root.setAttribute('data-szn-select-ui--active', '')
       } else {
-        this._root.removeAttribute('data-szn-select-active')
+        this._root.removeAttribute('data-szn-select-ui--active')
       }
     }
   }
