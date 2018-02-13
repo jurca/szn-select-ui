@@ -70,6 +70,10 @@
     }
 
     setSelectElement(select) {
+      if (select === this._select) {
+        return
+      }
+
       this._select = select
 
       createUI(this)
