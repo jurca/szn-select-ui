@@ -10,7 +10,7 @@
   const RESIZE_RELATED_DOM_EVENTS = ['resize', 'scroll', 'wheel', 'touchmove']
 
   SznElements['szn-select-ui'] = class SznSelectUi {
-    constructor(rootElement, uiContainer) {
+    constructor(rootElement) {
       if (!rootElement.hasOwnProperty('minBottomSpace')) {
         Object.defineProperty(rootElement, 'minBottomSpace', {
           get: () => rootElement._broker._minBottomSpace,
